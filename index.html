@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViralCraft AI - Crie Conteúdo TikTok com IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 100%);
+            color: #F1F1F2;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(13, 13, 13, 0.95);
+            border-bottom: 1px solid #2A2A2A;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #FE2C55;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #F1F1F2;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FE2C55;
+        }
+
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FE2C55, #25F4EE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #AAAAAA;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FE2C55;
+            color: white;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            background: #E01E47;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(254, 44, 85, 0.3);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 80px 0;
+        }
+
+        .feature-card {
+            background: #1A1A1A;
+            border: 1px solid #2A2A2A;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #FE2C55;
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #F1F1F2;
+        }
+
+        .feature-card p {
+            color: #AAAAAA;
+            font-size: 14px;
+        }
+
+        footer {
+            background: rgba(13, 13, 13, 0.95);
+            border-top: 1px solid #2A2A2A;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #F1F1F2;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #AAAAAA;
+            text-decoration: none;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #FE2C55;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2A2A2A;
+            padding-top: 30px;
+            text-align: center;
+            color: #666666;
+            font-size: 13px;
+        }
+
+        .legal-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .legal-page h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #FE2C55;
+        }
+
+        .legal-page h2 {
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #F1F1F2;
+        }
+
+        .legal-page p {
+            color: #AAAAAA;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .legal-page ul, .legal-page ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: #AAAAAA;
+        }
+
+        .legal-page li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="logo">🎬 ViralCraft AI</a>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/termos-de-servico">Termos</a></li>
+                    <li><a href="/politica-de-privacidade">Privacidade</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>Crie Conteúdo Viral para TikTok com IA</h1>
+                <p>Gere imagens e roteiros de vídeos profissionais em segundos. Agende postagens automáticas e alcance 2.000 seguidores.</p>
+                <button class="cta-button">Baixar App Agora</button>
+            </section>
+
+            <section class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Geração com IA</h3>
+                    <p>Crie imagens e roteiros virais usando inteligência artificial avançada</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Agendamento</h3>
+                    <p>Agende suas postagens para os melhores horários automaticamente</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Análise em Tempo Real</h3>
+                    <p>Acompanhe views, likes, comentários e crescimento de seguidores</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>12 Nichos</h3>
+                    <p>Escolha seu nicho e receba conteúdo otimizado para sua audiência</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Crescimento Garantido</h3>
+                    <p>Estratégia comprovada para alcançar 2.000 seguidores rapidamente</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Segurança</h3>
+                    <p>Seus dados estão protegidos com criptografia de ponta</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Produto</h4>
+                    <ul>
+                        <li><a href="/">Início</a></li>
+                        <li><a href="/">Recursos</a></li>
+                        <li><a href="/">Preços</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/termos-de-servico">Termos de Serviço</a></li>
+                        <li><a href="/politica-de-privacidade">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="mailto:contato@viralcraft.ai">contato@viralcraft.ai</a></li>
+                        <li><a href="#">Suporte</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ViralCraft AI. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
